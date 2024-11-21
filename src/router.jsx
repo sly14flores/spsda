@@ -9,6 +9,7 @@ const fallback = <>Loading...</>;
 const RootWrapper = lazy(() => import('./components/RootWrapper'));
 const MainWrapper = lazy(() => import('./components/MainWrapper'));
 
+const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const About = lazy(() => import('./pages/About'));
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter(
                     path: '',
                     element: <MainWrapper />,
                     children: [
+                        {
+                            path: 'login',
+                            element: <Login />,
+                        },                         
                         {
                             path: 'dashboard',
                             element: <Dashboard />,
