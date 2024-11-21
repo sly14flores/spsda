@@ -1,14 +1,18 @@
-import axios from 'axios'
-import { apiUrl } from '../../constants/url'
+import request from "../../library/request";
+
+export const signUp = (payload) => {
+  const url = '/users/signup'
+  return request({url, payload: { ...payload }, method: 'POST', shouldAuth: false})
+}
 
 const loginApi = (account) => {
-  const url = `${apiUrl}/v1/login`
-  return axios.post(url, {...account})
+  const url = `/v1/login`
+  return request({url, payload: {...account}, method: 'POST', shouldAuth: false})
 }
 
 const logoutApi = () => {
-  const url = `${apiUrl}/v1/logout`
-  return axios.post(url)
+  const url = '/v1/logout'
+  return request({url, method: 'POST'})
 }
 
 export {
