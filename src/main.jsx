@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import { ThemeProvider } from '@mui/material/styles';
+// import theme from './theme';
 import App from './App';
-import theme from './theme';
 
 import {
   QueryClient,
@@ -33,14 +33,14 @@ const queryClient = new QueryClient({
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <QueryClientProvider client={queryClient}>
-          <CssBaseline />
+          {/* <CssBaseline /> */}
           <App />
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </Provider>
   </React.StrictMode>,
 );
