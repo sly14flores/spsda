@@ -11,6 +11,9 @@ import {
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
+import { store } from './store.js'
+import { Provider } from 'react-redux'
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
@@ -29,13 +32,15 @@ const queryClient = new QueryClient({
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <QueryClientProvider client={queryClient}>
-        <CssBaseline />
-        <App />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <QueryClientProvider client={queryClient}>
+          <CssBaseline />
+          <App />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
 );
